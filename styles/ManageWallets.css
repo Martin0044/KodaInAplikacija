@@ -1,0 +1,94 @@
+#editingPartTable {
+    width: 100%;
+    height: 20%;
+}
+
+#TrManageWallets1 {
+    width: 100%;
+}
+
+#ThManageWallets1 {
+    width: 70%;
+}
+/*
+#DivManageWallets1 {
+    height: 70%;
+}
+*/
+#PrivatKey {
+    width: 60%;
+}
+
+.buttonManageWalletsClass {
+    width: 20%;
+}
+/*
+#DivManageWallets2 {
+    height: 20%;
+}
+*/
+#ThManageWallets2 {
+    width: 30%;
+}
+
+#QuantityOfWallets {
+    width: 60%;
+}
+
+#NameOfWallets {
+    width: 60%;
+}
+
+#buttonManageWallets3 {
+    width: 30%;
+}
+
+#DivManageWallets3 {
+    height: 500px;
+    overflow: auto;
+}
+
+#tableManageWallets2{
+    width: 100%;
+    border-bottom: 1px solid #ffffff;
+    
+}
+#loadedWalletaToEdit{
+    width: 100%;
+}
+
+#tableManageWallets3{
+    width: 100%;
+}
+
+#tbodyManageWallets2 {
+    overflow: auto;
+}
+
+#TrManageWallets2 {
+    width: 100%;
+}
+
+#ThManageWallets3 {
+    width: 15%;
+    color: #ffffff;
+}
+
+#ThManageWallets4 {
+    width: 45%;
+    color: #ffffff;
+}
+
+#ThManageWallets5 {
+    width: 30%;
+    color: #ffffff;
+}
+
+#ThManageWallets6 {
+    width: 10%;
+    color: #ffffff;
+}
+
+
+
+

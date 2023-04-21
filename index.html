@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles/CreateTasks.css">
+  <link rel="stylesheet" type="text/css" href="styles/leftSide.css">
+  <link rel="stylesheet" type="text/css" href="styles/ManageFunds.css">
+  <link rel="stylesheet" type="text/css" href="styles/ManageWallets.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <script defer src="scripts/CreateTasks.js"></script>
+  <script defer src="scripts/manageFunds.js"></script>
+  <script defer src="scripts/manageWallets.js"></script>
+  <script defer src="scripts/settingsMain.js"></script>
+  <script defer src="scripts/HTMLcontrol.js"></script>
+  <script defer src="scripts/general.js"></script>
+</head>
+
+<body>
+
+  <div id="loading-screen">
+    <p>Loading app!</p>
+  </div>
+
+  <div id="leftSide" class="tab">
+    <div id="ButtonsForTabs">
+      <button class="buttonDesign TabButtons"
+        onclick="openTab(event, 'mainDivCreateTasks'); updateDivDimensions()">Create task</button>
+      <button class="buttonDesign TabButtons"
+        onclick="openTab(event, 'mainDivManageFunds'); updateDivDimensions()">Manage funds</button>
+      <button class="buttonDesign TabButtons"
+        onclick="openTab(event, 'mainDivManageWallets');updateDivDimensions()">Manage wallets</button>
+    </div>
+
+    <div id="settingsDiv1">
+    </div>
+
+    <div id="settingsDiv2">
+      <table>
+        <tbody>
+          <tr>
+            <th>
+              <p class="textForDelay">Delay:</p>
+            </th>
+            <th>
+              <input class="inputdesign" type="text" id="Delay1" placeholder="Delay" value="">
+            </th>
+            <th>
+              <button class="buttonDesign" id="buttonManageWallets4" onclick="saveSettings()">save</button>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <p class="textForDelay">API:</p>
+            </th>
+            <th>
+              <input class="inputdesign" type="text" id="EtherscanAPI" placeholder="Etherscan API">
+            </th>
+            <th>
+              <button class="buttonDesign" id="buttonManageWallets4" onclick="saveSettings()">save</button>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <p class="textForDelay">RPC:</p>
+            </th>
+            <th>
+              <input class="inputdesign" type="text" id="RPCid" placeholder="RPC">
+            </th>
+            <th>
+              <button class="buttonDesign" id="buttonManageWallets4" onclick="saveSettings()">save</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+  </div>
+
+  <div id="mainDivCreateTasks" class="tabcontent">
+    <div id='MenuBar1'>
+      <button class="taskButtons" onclick="getTaskInfo()">Start tasks</button>
+      <button class="taskButtons" id="StopTaskId" data-name="false" onclick="stopTask()">Stop task</button>
+      <button class="taskButtons" onclick="deleteTask()">Delete task</button>
+      <button class="taskButtons" id="buttonCreateTasks1" onclick="OpenModal();loadWalletsForSelection();">Create
+        task</button>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal();removeWalletsSelect()">&times;</span>
+        <table id="TableCreateTasks1">
+          <tbody id="TbodyCreateTasks1">
+            <tr>
+              <th colspan="2" id="ThCreateTasks1" class="ThCreateTasksClass1">
+                <div class="dropdownForWallets">
+                  <button class='dropdownBtnClass' id="dropdownBtnForWallets" onclick="toggleDropDownForWallets()">Select wallets</button>
+                  <div class='dropdownListClass' id="dropdownListForWallets">
+                  </div>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th id="ThCreateTasks3" class="ThCreateTasksClass2">
+                <p class="modalText">Contarct Address</p>
+                <input class="inputdesign" type="text" id="modalContractAddress" placeholder="Contarct Address">
+              </th>
+              <th id="ThCreateTasks4" class="ThCreateTasksClass2">
+                <p class="modalText">Function</p>
+                <input class="inputdesign" type="text" id="modalFunction" placeholder="Function">
+              </th>
+            </tr>
+            <tr>
+              <th id="ThCreateTasks5" class="ThCreateTasksClass2">
+                <p class="modalText">Parameters</p>
+                <input class="inputdesign" type="text" id="modalParameters" placeholder="Parameters">
+              </th>
+              <th id="ThCreateTasks6" class="ThCreateTasksClass2">
+                <p class="modalText">Price</p>
+                <input class="inputdesign" type="text" id="modalPrice" placeholder="Price">
+              </th>
+            </tr>
+            <tr>
+              <th id="ThCreateTasks7" class="ThCreateTasksClass2">
+                <p class="modalText">Gas Price</p>
+                <input class="inputdesign" type="text" id="modalGasPrice" placeholder="Gas Price">
+              </th>
+              <th id="ThCreateTasks8" class="ThCreateTasksClass2">
+                <p class="modalText">Transactions Count</p>
+                <input class="inputdesign" type="text" id="modalTransactionsCount" placeholder="Transactions Count"
+                  value="1">
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <div id="DivCreateTasks1">
+          <button class="smallerButton" onclick="createTask()">Create Tasks</button>
+          <p id="errorBracket2"></p>
+        </div>
+
+
+      </div>
+    </div>
+    <div id='TasksDiv'>
+      <table id="TableCreateTasks2">
+        <tbody id="TbodyCreateTasks2">
+          <tr id="TrCreateTasks1">
+            <th id="ThCreateTasks9">
+              <input type="checkbox" id="mainTaskCheckbox" name="mainTaskCheckbox" value="wallet"
+                onclick="checkingCheckboxes('allDivTask1',this)">
+            </th>
+            <th id="ThCreateTasks10">
+              <p class="TasksNaming">Contract address</p>
+            </th>
+            <th id="ThCreateTasks11">
+              <p class="TasksNaming">Gas</p>
+            </th>
+            <th id="ThCreateTasks12">
+              <p class="TasksNaming">Acount</p>
+            </th>
+            <th id="ThCreateTasks13">
+              <p class="TasksNaming">Status</p>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div id='allDivTask1'>
+        <table id="TableCreateTasks3">
+          <tbody id='allTasks1'>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainDivManageFunds" class="tabcontent">
+    <table id="tableManageFunds1">
+      <tbody id="tbodyManageFunds1">
+        <tr id="trManageFunds1">
+          <th id="thManageFunds1" class="ManageFundsBoxClass">
+            <div id="divButtonsManageFunds1" class="ButtonsManageFundsClass">
+              <table class="ManageFundsControl">
+                <tbody>
+                  <tr>
+                    <th class="thClassCheckbox">
+                      <input type="checkbox" id="mainFundsCheckbox1" name="mainFundsCheckbox" value="wallet"
+                        onclick="checkingCheckboxes('allWallets',this)">
+                    </th>
+                    <th class="thClassCheckButton">
+                      <button class="buttonDesign" onclick="getBatchBalance('allWallets')">Check balance</button>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="allWallets" class="allWalletsClass"></div>
+          </th>
+          <th id="thManageFunds2" class="ManageFundsBoxClass">
+            <div id="divButtonsManageFunds2" class="ButtonsManageFundsClass">
+              <table class="ManageFundsControl">
+                <tbody>
+                  <tr>
+                    <th class="thClassCheckbox">
+                      <input type="checkbox" id="mainFundsCheckbox2" name="mainFundsCheckbox" value="wallet"
+                        onclick="checkingCheckboxes('allWallets2',this)">
+                    </th>
+                    <th class="thClassCheckButton">
+                      <button class="buttonDesign" onclick="getBatchBalance('allWallets2')">Check balance</button>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="allWallets2" class="allWalletsClass"></div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <div id="sendButtons1">
+      <input class="inputdesign" type="text" id="amountOfFundsToSend" placeholder="Amount">
+      <input class="inputdesign" type="text" id="amountOfGas" placeholder="Gas price">
+      <button class="buttonDesign" onclick="mainFundsTransfer()">send</button>
+      <span id='errorBracket1'> </span>
+
+    </div>
+  </div>
+
+  <div id="mainDivManageWallets" class="tabcontent">
+    <table id="editingPartTable">
+      <tbody id="tbodyManageWallets1">
+        <tr id="TrManageWallets1">
+          <th id="ThManageWallets1">
+            <div id="DivManageWallets1">
+              <input class="inputdesign" type="text" id="WalletName" placeholder="Name">
+              <input class="inputdesign" type="text" id="WalletAddresss" placeholder="Wallet Address">
+              <br>
+              <br>
+              <input class="inputdesign" type="text" id="PrivatKey" placeholder="Privat Key">
+              <br>
+              <button class="buttonDesign" id="buttonManageWallets1" data-name="" class="buttonManageWalletsClass"
+                onclick="saveEditedWallet()">Save</button>
+              <button class="buttonDesign" id="buttonManageWallets2" data-name="" class="buttonManageWalletsClass"
+                disabled onclick="deleteEditedWallet()">Delete</button>
+              <br>
+              <p id="errorBracket3"> </p>
+            </div>
+
+          </th>
+          <th id="ThManageWallets2">
+            <div>
+              <input class="inputdesign" type="text" id="QuantityOfWallets" placeholder="Quantity">
+              <br>
+              <br>
+              <input class="inputdesign" type="text" id="NameOfWallets" placeholder="Name">
+              <br>
+              <button class="buttonDesign" id="buttonManageWallets3" onclick="generateWallets()">Create</button>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <table id="tableManageWallets2">
+        <tbody id="tbodyManageWallets2">
+          <tr id="TrManageWallets2">
+            <th id="ThManageWallets3">
+              <p>Account name</p>
+            </th>
+            <th id="ThManageWallets4">
+              <p>Wallet address</p>
+            </th>
+            <th id="ThManageWallets5">
+              <p>Privat Key</p>
+            </th>
+            <th id="ThManageWallets6">
+              <p>Edit</p>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="DivManageWallets3">
+      <table id="tableManageWallets3">
+        <tbody id="loadedWalletaToEdit">
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  </div>
+
+</body>
+
+</html>

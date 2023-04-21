@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    overflow: hidden;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.tabcontent {
+    float: left;
+    background-color: #050047;
+    padding: 0px 12px;
+    width: 80%;
+    border-left: none;
+}
+
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked::before {
+    background-color: white;
+}
+
+
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 5vw;
+}
+
+
+#loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050047;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+#loading-screen p {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.buttonDesign {
+    display: inline-block;
+    background-color: #050047;
+    /* use a light color for the background */
+    /*border: 10px solid #ffffff;*/
+    color: #ffffff;
+    padding: 22px 16px;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.buttonDesign:hover {
+    background-color: #000436;
+}
+
+.buttonDesign.active {
+    background-color: #03002b;
+}
+
+.inputdesign {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+    border-bottom-color: #fff;
+    outline: none;
+    color: #fff;
+}

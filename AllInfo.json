@@ -1,0 +1,11 @@
+{
+  "wallets": [],
+  "settings": [
+    {
+      "RPC": "",
+      "EtherscanAPI": "",
+      "Delay": ""
+    }
+  ],
+  "tasks": []
+}

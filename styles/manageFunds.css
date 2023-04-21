@@ -1,0 +1,84 @@
+#mainDivManageFunds {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#DivAllWallets {
+    overflow: auto;
+    border: none;
+}
+
+#tableManageFunds1 {
+    width: 100%;
+    border: none;
+}
+
+#tbodyManageFunds1 {
+    border: none;
+    width: 100%;
+}
+
+.ManageFundsBoxClass {
+    width: 50%;
+    vertical-align: top;
+}
+
+.ButtonsManageFundsClass {
+    border: none;
+    position: relative;
+    border-bottom: 1px solid black;
+}
+
+.ManageFundsControl {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.allWalletsClass {
+    overflow-y: auto;
+    overflow: auto;
+    display: block;
+    border: none;
+}
+
+#sendButtons1 {
+    border-top: 1px solid #ccc;
+    display: inline-block;
+    width: 100%;
+
+}
+
+
+.thClassCheckButton {
+    width: 20%;
+    text-align: center;
+}
+
+.thClassCheckbox {
+    width: 80%;
+    text-align: left;
+}
+
+
+.itemWallet {
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    /* Use flexbox to center the button */
+    justify-content: center;
+    /* Center the button horizontally */
+    align-items: center;
+}
+
+.itemWallet:hover,
+.itemGroup:hover {
+    background-color: #06005e;
+}
+
+.itemWallet.selected,
+.itemGroup.selected {
+    background-color: #050047;
+}
